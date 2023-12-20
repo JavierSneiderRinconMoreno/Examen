@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,29 +21,23 @@ import com.example.demo.repository.PokemonRepository;
 public class ControllerPokemon {
 
 	
+	@Autowired
 	PokemonRepository pokemonRepository;
 	
 	
-	@GetMapping("/{id}")
-	public List<Pokemon> getUsuariosbyId(@PathVariable Integer id) {
+	@GetMapping("/{tipo}")
+	public List<Pokemon> getUsuariosbyId(@PathVariable Integer tipo) {
 		
-		Optional<Pokemon> pokemon = pokemonRepository.findById(id);
+		List<Pokemon> pokemis_tipo = pokemonRepository.findByTipo_pokemon(tipo);
 		
-		if (pokemon.isPresent()) {
-			return null;
-		}
-		
-		return null;
+		return pokemis_tipo;
 
 	}
 	
 	@PostMapping
-	public Pokemon postPokemon(@RequestBody Pokemon pokemon) {
-		
-		pokemonRepository.save(pokemon);
-		
-		return pokemon;
-		
+	public Pokemon postPokemon(@RequestBody Pokemon pokemon) {		
+		pokemonRepository.save(pokemon);		
+		return pokemonRepository.findByNombre(pokemon.getNombre());	
 
 	}
 }
