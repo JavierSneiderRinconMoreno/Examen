@@ -1,7 +1,10 @@
 package com.example.demo.entities;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
+import lombok.Data;
 
+@Entity
+@Data
 public class Tipo_Pokemon {
 
 
