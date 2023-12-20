@@ -14,6 +14,10 @@ import lombok.Data;
 @Data
 public class Entrenador {
 
+	@Id
+	@SequenceGenerator(name = "id_entrena", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_entrena")
+	private Integer id;
 	
 	private String nombre;
 	private String apellido;
@@ -22,9 +26,7 @@ public class Entrenador {
 	
 	
 
-	@Id
-	@SequenceGenerator(name = "pueblo_Id", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "pueblo_Id")
+	
 	private Integer pueblo_Id;
 	
 	private String uuid;

@@ -15,14 +15,14 @@ import lombok.Data;
 @Data
 public class Pokemon {
 
-
-	
+	@Id
+	@SequenceGenerator(name = "id_poke", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_poke")
+	private Integer id;
 	private String nombre;
 	private String descripcion;	
 	
-	@Id
-	@SequenceGenerator(name = "tipo_pokemon", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "tipo_pokemon")
+	
 	private Integer tipo_pokemon;	
 	private Date fecha_descubrimineto;
 	private Integer generacion;

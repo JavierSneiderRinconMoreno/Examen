@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Entrenador;
 import com.example.demo.entities.Pokemon;
-import com.example.demo.entity.Usuario;
+//import com.example.demo.entities.Pokemon;
 import com.example.demo.repository.EntrenadorRepository;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
